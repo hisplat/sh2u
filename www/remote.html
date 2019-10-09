@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remote Control</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+    </head>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        function rc(index) {
+			$.ajax({
+				url: "/input/keyevent",
+				type: "GET",
+                data: { key: index },
+				success: function(data) {
+                   // alert(data);
+				}
+			});
+   
+        }
+    </script>
+    <body>
+        <div class="main">
+            <!-- head -->
+            <div class="head">
+                <div class="iconfont head-left">&#xe605;</div>
+                <span>遥控器</span>
+                <div class="iconfont head-right">&#xe60e;</div>
+                <div class="clear"></div>
+            </div>
+            <!-- head end -->
+
+            <!-- voice -->
+            <div class="voice iconfont">
+                <div class="voice-subtract" onclick="rc(25);">&#xe60a;</div>
+                <span>&#xe608;</span>
+                <div class="voice-add" onclick="rc(24);">&#xe607;</div>
+                <div class="clear"></div>
+            </div>
+            <!-- voice end -->
+
+            <!-- channel -->
+            <div class="voice iconfont">
+                <div class="voice-subtract" onclick="rc(167);">&#xe60a;</div>
+                <span>&#xe60c;</span>
+                <div class="voice-add" onclick="rc(166);">&#xe607;</div>
+                <div class="clear"></div>
+            </div>
+            <!-- channel end -->
+
+            <!-- middle control -->
+            <div class="iconfont middle">
+                <div class="middle-top" onclick="rc(19);">&#xe604;</div>
+                <div class="middle-middle">
+                    <div class="middle-left" onclick="rc(21);">&#xe602;</div>
+                    <span onclick="rc(23);">OK</span>
+                    <div class="middle-right" onclick="rc(22);">&#xe606;</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="middle-bottom" onclick="rc(20);">&#xe605;</div>
+                <div class="clear"></div>
+            </div>
+            <!-- middle control end -->
+
+            <!-- bottom -->
+            <div class="bottom iconfont">
+                <div class="bottom-home" onclick="rc(142);">&#xe609;</div>
+                <span class="bottom-menu" onclick="rc(82);">&#xe601;</span>
+                <div class="bottom-back" onclick="rc(4);">&#xe60b;</div>
+                <div class="clear"></div>
+            </div>
+            <!-- bottom end -->
+        </div>
+    </body>
+</html>
